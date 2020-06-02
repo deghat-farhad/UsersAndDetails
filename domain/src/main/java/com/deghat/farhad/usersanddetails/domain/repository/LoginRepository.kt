@@ -1,0 +1,7 @@
+package com.deghat.farhad.usersanddetails.domain.repository
+
+import io.reactivex.Observable
+
+interface LoginRepository {
+    fun login(email: String, password: String): Observable<String>
+}
