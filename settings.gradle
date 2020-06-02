@@ -1,3 +1,4 @@
 rootProject.name='usersAndDetails'
 include ':app'
 include ':domain'
+include ':data'
