@@ -1,5 +1,6 @@
 package com.deghat.farhad.usersanddetails.domain.usecase.login
 
+import com.deghat.farhad.usersanddetails.domain.model.LoginResponse
 import com.deghat.farhad.usersanddetails.domain.usecase.base.UseCase
 import com.deghat.farhad.usersanddetails.domain.repository.LoginRepository
 import io.reactivex.Observable
@@ -9,8 +10,8 @@ class Login(
     executorThread: Scheduler,
     uiThread: Scheduler,
     private val loginRepository: LoginRepository
-): UseCase<String, LoginParams>(executorThread, uiThread) {
-    override fun buildUseCaseObservable(params: LoginParams): Observable<String> {
+): UseCase<LoginResponse, LoginParams>(executorThread, uiThread) {
+    override fun buildUseCaseObservable(params: LoginParams): Observable<LoginResponse> {
         return loginRepository.login(params.email, params.password)
     }
 }
