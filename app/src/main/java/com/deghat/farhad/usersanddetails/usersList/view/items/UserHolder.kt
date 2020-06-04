@@ -10,8 +10,8 @@ import kotlinx.android.synthetic.main.user_item.view.*
 import kotlin.reflect.KFunction1
 
 class UserHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-    private val txtViwUserName = itemView.txtViwDoctorName
-    private val txtViwUserEmail = itemView.txtViwAddress
+    private val txtViwUserName = itemView.txtViwUserName
+    private val txtViwUserEmail = itemView.txtViwEmail
     private val root = itemView.rootView
     private var userId = -1
 

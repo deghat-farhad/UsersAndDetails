@@ -19,8 +19,6 @@
             android:id="@+id/imgViwProfile"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/ic_profile" />
@@ -31,7 +29,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtViwDoctorName"
+                android:id="@+id/txtViwUserName"
                 style="@style/header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,16 +40,16 @@
                 tools:text="Daniel Pearson" />
 
             <TextView
-                android:id="@+id/txtViwAddress"
+                android:id="@+id/txtViwEmail"
                 style="@style/subhead"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_mail"
+                android:drawableLeft="@drawable/ic_mail"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/textview_subhead_horizontal_padding"
                 android:paddingRight="@dimen/textview_subhead_horizontal_padding"
                 android:paddingBottom="@dimen/textview_subhead_padding_bottom"
-                android:drawableLeft="@drawable/ic_mail"
-                android:drawableStart="@drawable/ic_mail"
                 tools:text="daniel.pearson@reqres.in" />
         </LinearLayout>
     </LinearLayout>
