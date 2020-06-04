@@ -6,5 +6,7 @@
     <string name="hintEmail">Email</string>
     <string name="btnLogin">Login</string>
     <string name="hintPassword">Password</string>
-    <string name="Logging_in">Logging in ...</string>
+    <string name="Logging_in">Logging in …</string>
+    <string name="loadingFailed">Uhoh. Don\'t feel grumpy. Please try again.</string>
+    <string name="tryAgain">Try again</string>
 </resources>

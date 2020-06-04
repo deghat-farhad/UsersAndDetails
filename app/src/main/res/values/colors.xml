@@ -6,4 +6,6 @@
     <color name="colorBackground">#e8e8e8</color>
     <color name="colorLightGray">#808080</color>
     <color name="colorPink">#D81B60</color>
+    <color name="textView_primary_text_color">#23364A</color>
+    <color name="textView_secondary_text_color">#808080</color>
 </resources>

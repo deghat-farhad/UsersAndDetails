@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/cardview_horizontal_margin"
+    android:layout_marginTop="@dimen/cardview_vertical_margin"
+    android:layout_marginRight="@dimen/cardview_horizontal_margin"
+    android:layout_marginBottom="@dimen/cardview_vertical_margin"
+    app:cardCornerRadius="@dimen/cardview_radius">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgViwProfile"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_profile" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtViwDoctorName"
+                style="@style/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/textview_header_horizontal_padding"
+                android:paddingTop="@dimen/textview_header_padding_top"
+                android:paddingRight="@dimen/textview_header_horizontal_padding"
+                android:paddingBottom="@dimen/textview_header_padding_bottom"
+                tools:text="Daniel Pearson" />
+
+            <TextView
+                android:id="@+id/txtViwAddress"
+                style="@style/subhead"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/textview_subhead_horizontal_padding"
+                android:paddingRight="@dimen/textview_subhead_horizontal_padding"
+                android:paddingBottom="@dimen/textview_subhead_padding_bottom"
+                android:drawableLeft="@drawable/ic_mail"
+                android:drawableStart="@drawable/ic_mail"
+                tools:text="daniel.pearson@reqres.in" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -35,4 +35,17 @@
         <item name="android:textColor">@color/colorPink</item>
     </style>
 
+    <!-- Item theme. -->
+    <style name="header">
+        <item name="android:textSize">@dimen/header_text_size</item>
+        <item name="android:textColor">@color/textView_primary_text_color</item>
+        <item name="android:fontFamily">@font/rubik_bold</item>
+    </style>
+
+    <style name="subhead">
+        <item name="android:textSize">@dimen/subhead_text_size</item>
+        <item name="android:textColor">@color/textView_secondary_text_color</item>
+        <item name="android:fontFamily">@font/rubik</item>
+    </style>
+
 </resources>

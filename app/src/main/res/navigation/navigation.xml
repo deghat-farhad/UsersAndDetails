@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragUsersList"
-        android:name="com.deghat.farhad.usersanddetails.usersList.FragUsersList"
+        android:name="com.deghat.farhad.usersanddetails.usersList.view.FragUsersList"
         android:label="frag_users_list"
         tools:layout="@layout/frag_users_list" >
         <action

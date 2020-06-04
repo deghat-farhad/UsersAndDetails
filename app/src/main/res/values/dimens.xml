@@ -3,4 +3,15 @@
     <dimen name="buttonTextViewSize">12dp</dimen>
     <dimen name="buttonHorizontalPadding">25dp</dimen>
     <dimen name="buttonVerticalPadding">5dp</dimen>
+    <dimen name="cardview_radius">6dp</dimen>
+    <dimen name="cardview_horizontal_margin">10dp</dimen>
+    <dimen name="cardview_vertical_margin">3dp</dimen>
+    <dimen name="textview_header_padding_top">20dp</dimen>
+    <dimen name="textview_header_padding_bottom">8dp</dimen>
+    <dimen name="textview_header_horizontal_padding">20dp</dimen>
+    <dimen name="header_text_size">17sp</dimen>
+    <dimen name="textview_subhead_padding_bottom">20dp</dimen>
+    <dimen name="textview_subhead_horizontal_padding">20dp</dimen>
+    <dimen name="subhead_text_size">14sp</dimen>
+    <dimen name="layout_default_margin_top">10dp</dimen>
 </resources>
