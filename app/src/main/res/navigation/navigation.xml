@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragUserDetails"
-        android:name="com.deghat.farhad.usersanddetails.FragUserDetails"
+        android:name="com.deghat.farhad.usersanddetails.userDetails.FragUserDetails"
         android:label="FragUserDetails" >
         <argument
             android:name="selectedUserId"

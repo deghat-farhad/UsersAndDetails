@@ -2,6 +2,7 @@ package com.deghat.farhad.usersanddetails.di
 
 import androidx.lifecycle.ViewModel
 import com.deghat.farhad.usersanddetails.login.ViewModelLogin
+import com.deghat.farhad.usersanddetails.userDetails.ViewModelUserDetails
 import com.deghat.farhad.usersanddetails.usersList.ViewModelUsersList
 import dagger.Binds
 import dagger.MapKey
@@ -24,4 +25,9 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(ViewModelUsersList::class)
     fun bindUsersListViewModel(viewModelUsersList: ViewModelUsersList): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ViewModelUserDetails::class)
+    fun bindUsersDetailsViewModel(viewModelUserDetails: ViewModelUserDetails): ViewModel
 }

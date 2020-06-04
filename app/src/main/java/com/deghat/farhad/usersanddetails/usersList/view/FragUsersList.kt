@@ -49,12 +49,8 @@ class FragUsersList : Fragment() {
             ViewModelProviders.of(this, viewModelFactory).get(ViewModelUsersList::class.java)
         initiate(view)
         setObservers()
-        setActions()
         setupScrollListener()
         viewModel.viewIsReady()
-    }
-
-    private fun setActions() {
     }
 
     private fun setObservers() {
