@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.deghat.farhad.usersanddetails.R
 import com.deghat.farhad.usersanddetails.di.ViewModelFactory
+import kotlinx.android.synthetic.main.frag_login.view.*
 import javax.inject.Inject
 
 class FragLogin : Fragment() {
@@ -20,10 +22,14 @@ class FragLogin : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(
+        val view = inflater.inflate(
             R.layout.frag_login,
             container, false
         )
+
+        view.btnLogin.setOnClickListener{Navigation.findNavController(view).navigate(R.id.action_fragLogin_to_fragUsersList)}
+
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,6 +44,6 @@ class FragLogin : Fragment() {
     }
 
     private fun initiate(view: View) {
-        TODO("Not yet implemented")
+
     }
 }

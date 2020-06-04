@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/fragLogin">
+
+    <fragment
+        android:id="@+id/fragLogin"
+        android:name="com.deghat.farhad.usersanddetails.login.FragLogin"
+        android:label="FragLogin" >
+        <action
+            android:id="@+id/action_fragLogin_to_fragUsersList"
+            app:destination="@id/fragUsersList" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragUsersList"
+        android:name="com.deghat.farhad.usersanddetails.FragUsersList"
+        android:label="frag_users_list"
+        tools:layout="@layout/frag_users_list" >
+        <action
+            android:id="@+id/action_fragUsersList_to_fragUserDetails"
+            app:destination="@id/fragUserDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragUserDetails"
+        android:name="com.deghat.farhad.usersanddetails.FragUserDetails"
+        android:label="FragUserDetails" >
+        <action
+            android:id="@+id/action_fragUserDetails_to_fragUsersList"
+            app:destination="@id/fragUsersList" />
+    </fragment>
+</navigation>
