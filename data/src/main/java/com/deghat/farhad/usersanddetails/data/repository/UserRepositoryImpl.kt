@@ -15,4 +15,8 @@ class UserRepositoryImpl @Inject constructor(
     override fun getUsersList(pageNumber: Int): Observable<UsersList> {
         return remote.getUsersList(pageNumber).map { userEntityMapper.mapUsersListEntityToDomain(it) }
     }
+
+    override fun getUser(id: Int): Observable<User> {
+        return remote.getUser(id).map { userEntityMapper.mapUserDetailsEntityToDomain(it) }
+    }
 }
