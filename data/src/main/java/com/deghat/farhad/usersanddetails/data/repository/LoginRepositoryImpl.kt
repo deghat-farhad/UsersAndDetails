@@ -5,8 +5,9 @@ import com.deghat.farhad.usersanddetails.data.remote.Remote
 import com.deghat.farhad.usersanddetails.domain.model.LoginResponse
 import com.deghat.farhad.usersanddetails.domain.repository.LoginRepository
 import io.reactivex.Observable
+import javax.inject.Inject
 
-class LoginRepositoryImpl(
+class LoginRepositoryImpl @Inject constructor(
     private val remote: Remote,
     private val loginResponseEntityMapper: LoginResponseEntityMapper
 ) : LoginRepository {

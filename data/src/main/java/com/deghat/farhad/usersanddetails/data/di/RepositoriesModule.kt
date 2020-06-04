@@ -1,9 +1,7 @@
 package com.deghat.farhad.usersanddetails.data.di
 
-import com.deghat.farhad.usersanddetails.data.mapper.LoginResponseEntityMapper
 import com.deghat.farhad.usersanddetails.data.remote.Remote
 import com.deghat.farhad.usersanddetails.data.remote.ServiceGenerator
-import com.deghat.farhad.usersanddetails.data.repository.LoginRepositoryImpl
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -18,19 +16,6 @@ import javax.inject.Named
 
 @Module
 class RepositoriesModule {
-
-    @Provides
-    fun loginRepositoryImpl(
-        remote: Remote,
-        loginResponseEntityMapper: LoginResponseEntityMapper
-    ): LoginRepositoryImpl {
-        return LoginRepositoryImpl(remote, loginResponseEntityMapper)
-    }
-
-    @Provides
-    fun loginResponseEntityMapper(): LoginResponseEntityMapper {
-        return LoginResponseEntityMapper()
-    }
 
     @Provides
     fun remote(serviceGenerator: ServiceGenerator): Remote {
