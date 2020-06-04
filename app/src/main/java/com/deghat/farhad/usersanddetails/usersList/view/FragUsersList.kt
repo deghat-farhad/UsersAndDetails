@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.deghat.farhad.usersanddetails.R
@@ -25,6 +27,7 @@ class FragUsersList : Fragment() {
 
     private lateinit var recyclerViewUsers: RecyclerView
     private lateinit var usersAdapter: UsersAdapter
+    private lateinit var navController: NavController
 
 
     override fun onCreateView(
@@ -72,6 +75,11 @@ class FragUsersList : Fragment() {
             else
                 hideRetry()
         })
+
+        viewModel.selectedUserId.observe(this, Observer {
+            val action = FragUsersListDirections.actionFragUsersListToFragUserDetails(it)
+            navController.navigate(action)
+        })
     }
 
     private fun injectThisToDagger() {
@@ -82,8 +90,9 @@ class FragUsersList : Fragment() {
 
     private fun initiate(view: View) {
         recyclerViewUsers = view.RecViwUsers
-        usersAdapter = UsersAdapter(viewModel.users, viewModel::retry)
+        usersAdapter = UsersAdapter(viewModel.users, viewModel::retry, viewModel::userItemClick)
         initiateUsersRecyclerView()
+        navController = Navigation.findNavController(view)
     }
 
     private fun initiateUsersRecyclerView() {

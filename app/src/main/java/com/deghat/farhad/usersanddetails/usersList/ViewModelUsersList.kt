@@ -26,9 +26,14 @@ class ViewModelUsersList @Inject constructor(
     val newItemsAddedToUsers by lazy { SingleLiveEvent<Int>() }
     val isAllItemsLoaded by lazy { MutableLiveData<Boolean>() }
     val isFailedToLoad by lazy { MutableLiveData<Boolean>() }
+    val selectedUserId by lazy {SingleLiveEvent<Int>()}
 
     companion object {
         private const val VISIBLE_THRESHOLD = 2
+    }
+
+    fun userItemClick(userId: Int){
+        selectedUserId.value = userId
     }
 
     fun retry() {

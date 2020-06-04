@@ -6,10 +6,12 @@ import com.deghat.farhad.usersanddetails.model.UserItem
 import com.deghat.farhad.usersanddetails.usersList.view.items.ProgressBarHolder
 import com.deghat.farhad.usersanddetails.usersList.view.items.RetryHolder
 import com.deghat.farhad.usersanddetails.usersList.view.items.UserHolder
+import kotlin.reflect.KFunction1
 
 class UsersAdapter(
     private val Users: List<UserItem?>,
-    private val retryFunction: () -> Unit
+    private val retryFunction: () -> Unit,
+    private val onItemClick: KFunction1<Int, Unit>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var loadingFlg = true
@@ -64,7 +66,7 @@ class UsersAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (Users.size > position)
             Users[position]?.let {
-                if (holder is UserHolder) holder.bind(it)
+                if (holder is UserHolder) holder.bind(it, onItemClick)
             }
         if (holder is RetryHolder) holder.bind(retryFunction)
     }

@@ -3,18 +3,23 @@ package com.deghat.farhad.usersanddetails.usersList.view.items
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.deghat.farhad.usersanddetails.R
 import com.deghat.farhad.usersanddetails.model.UserItem
+import kotlinx.android.synthetic.main.user_item.view.*
+import kotlin.reflect.KFunction1
 
 class UserHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-    private val txtViwUserName = itemView.findViewById<TextView>(R.id.txtViwDoctorName)
-    private val txtViwUserEmail = itemView.findViewById<TextView>(R.id.txtViwAddress)
+    private val txtViwUserName = itemView.txtViwDoctorName
+    private val txtViwUserEmail = itemView.txtViwAddress
+    private val root = itemView.rootView
+    private var userId = -1
 
-    fun bind(doctorItem: UserItem) {
-        txtViwUserName.text = doctorItem.name
-        txtViwUserEmail.text = doctorItem.email
+    fun bind(userItem: UserItem, onClickFunction: KFunction1<Int, Unit>) {
+        txtViwUserName.text = userItem.name
+        txtViwUserEmail.text = userItem.email
+        userId = userItem.id
+        root.setOnClickListener{onClickFunction(userId)}
     }
 
     companion object {

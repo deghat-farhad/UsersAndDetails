@@ -24,10 +24,18 @@
         tools:layout="@layout/frag_users_list" >
         <action
             android:id="@+id/action_fragUsersList_to_fragUserDetails"
-            app:destination="@id/fragUserDetails" />
+            app:destination="@id/fragUserDetails"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/fragUserDetails"
         android:name="com.deghat.farhad.usersanddetails.FragUserDetails"
-        android:label="FragUserDetails" />
+        android:label="FragUserDetails" >
+        <argument
+            android:name="selectedUserId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
