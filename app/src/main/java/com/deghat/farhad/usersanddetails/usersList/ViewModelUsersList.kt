@@ -1,5 +1,6 @@
 package com.deghat.farhad.usersanddetails.usersList
 
+import android.content.res.Resources
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.deghat.farhad.usersanddetails.domain.model.UsersList
@@ -8,13 +9,15 @@ import com.deghat.farhad.usersanddetails.domain.usecase.getUsersList.GetUsersLis
 import com.deghat.farhad.usersanddetails.domain.usecase.getUsersList.GetUsersListParams
 import com.deghat.farhad.usersanddetails.mapper.UserItemMapper
 import com.deghat.farhad.usersanddetails.model.UserItem
+import com.deghat.farhad.usersanddetails.utils.AvatarHelper
 import com.deghat.farhad.usersanddetails.utils.SingleLiveEvent
 import java.util.*
 import javax.inject.Inject
 
 class ViewModelUsersList @Inject constructor(
     private val getUsersList: GetUsersList,
-    val userItemMapper: UserItemMapper
+    val userItemMapper: UserItemMapper,
+    val avatarHelper: AvatarHelper
 ) : ViewModel() {
 
     val users: LinkedList<UserItem?> = LinkedList()
@@ -22,6 +25,7 @@ class ViewModelUsersList @Inject constructor(
     private var isLoading = false
     private var isLastPage = true
     private var pageNumber = 1
+    private lateinit var resources: Resources
 
     val newItemsAddedToUsers by lazy { SingleLiveEvent<Int>() }
     val isAllItemsLoaded by lazy { MutableLiveData<Boolean>() }
@@ -41,7 +45,8 @@ class ViewModelUsersList @Inject constructor(
         getUsers()
     }
 
-    fun viewIsReady() {
+    fun viewIsReady(resources: Resources) {
+        this.resources = resources
         loadMore()
     }
 
@@ -62,7 +67,9 @@ class ViewModelUsersList @Inject constructor(
         val getUsersListObserver = object : DefaultObserver<UsersList>() {
             override fun onNext(it: UsersList) {
                 super.onNext(it)
-                users.addAll(it.usersList.map { userItemMapper.mapToPresentation(it) })
+                users.addAll(it.usersList.map {
+                    userItemMapper.mapToPresentation(it)
+                })
                 pageNumber++
                 newItemsAddedToUsers.value = it.usersList.size
                 isLastPage = it.isLastPage

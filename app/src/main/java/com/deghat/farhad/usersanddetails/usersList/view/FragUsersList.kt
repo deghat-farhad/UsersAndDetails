@@ -50,7 +50,7 @@ class FragUsersList : Fragment() {
         initiate(view)
         setObservers()
         setupScrollListener()
-        viewModel.viewIsReady()
+        viewModel.viewIsReady(resources)
     }
 
     private fun setObservers() {
@@ -80,7 +80,9 @@ class FragUsersList : Fragment() {
 
     private fun injectThisToDagger() {
         DaggerViewModelComponent
-            .create()
+            .builder()
+            .resources(resources)
+            .build()
             .injectFragment(this)
     }
 

@@ -83,7 +83,9 @@ class FragLogin : Fragment() {
 
     private fun injectThisToDagger() {
         DaggerViewModelComponent
-            .create()
+            .builder()
+            .resources(resources)
+            .build()
             .injectFragment(this)
     }
 
