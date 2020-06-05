@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val inflater = navController.navInflater
         val graph = inflater.inflate(R.navigation.navigation)
 
-        graph.startDestination = R.id.fragLogin
+        graph.startDestination = R.id.fragUsersList
 
         navController.graph = graph
     }

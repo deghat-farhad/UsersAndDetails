@@ -74,4 +74,7 @@ dependencies {
     implementation "android.arch.lifecycle:runtime:$lifecycle_version"
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
     annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
+
+    //picasso
+    implementation "com.squareup.picasso:picasso:$picasso_version"
 }
