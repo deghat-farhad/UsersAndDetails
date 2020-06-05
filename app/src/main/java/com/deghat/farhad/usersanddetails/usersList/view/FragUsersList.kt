@@ -50,7 +50,7 @@ class FragUsersList : Fragment() {
         initiate(view)
         setObservers()
         setupScrollListener()
-        viewModel.viewIsReady(resources)
+        viewModel.viewIsReady()
     }
 
     private fun setObservers() {

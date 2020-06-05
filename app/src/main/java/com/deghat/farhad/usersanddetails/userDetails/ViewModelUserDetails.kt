@@ -9,6 +9,8 @@ import com.deghat.farhad.usersanddetails.domain.usecase.getUserDetails.GetUserDe
 import com.deghat.farhad.usersanddetails.domain.usecase.getUserDetails.GetUserDetailsParams
 import com.deghat.farhad.usersanddetails.mapper.UserItemMapper
 import com.deghat.farhad.usersanddetails.model.UserItem
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.addTo
 import javax.inject.Inject
 
 class ViewModelUserDetails @Inject constructor(
@@ -21,6 +23,8 @@ class ViewModelUserDetails @Inject constructor(
     val isInProgress by lazy { MutableLiveData<Boolean>() }
     val profilePicture by lazy { MutableLiveData<Drawable>() }
     val isProfilePictureLoading by lazy { MutableLiveData<Boolean>() }
+
+    private val bag = CompositeDisposable()
 
     fun viewIsReady(userId: Int) {
         getUserDetails(userId)
@@ -44,6 +48,8 @@ class ViewModelUserDetails @Inject constructor(
             }
         }
 
+        getUserDetailsObserver.addTo(bag)
+
         val params = GetUserDetailsParams(userId)
 
         getUserDetails.execute(getUserDetailsObserver, params)
@@ -57,6 +63,11 @@ class ViewModelUserDetails @Inject constructor(
             userItem.avatarDrawable = it
             profilePicture.value = it
             isProfilePictureLoading.value = false
-        }
+        }?.addTo(bag)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        bag.dispose()
     }
 }
