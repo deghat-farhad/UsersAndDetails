@@ -1,4 +1,4 @@
-package com.deghat.farhad.usersanddetails.usersList.view.items
+package com.deghat.farhad.usersanddetails.usersList.view.holders
 
 import android.view.LayoutInflater
 import android.view.View

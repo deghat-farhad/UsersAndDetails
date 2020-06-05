@@ -86,7 +86,7 @@ class FragUsersList : Fragment() {
 
     private fun initiate(view: View) {
         recyclerViewUsers = view.RecViwUsers
-        usersAdapter = UsersAdapter(viewModel.users, viewModel::retry, viewModel::userItemClick)
+        usersAdapter = UsersAdapter(viewModel.users, viewModel::retry, viewModel::userItemClick, resources)
         initiateUsersRecyclerView()
         navController = Navigation.findNavController(view)
     }
